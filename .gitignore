@@ -1,2 +1,5 @@
 /large_file.txt
 /.venv
+/*.egg-info/
+__pycache__
+*.txt

@@ -23,6 +23,7 @@ def generate(num_lines: int, max_line_length: int, block_size=10000):
 
             t = tqdm(desc='Generating lines', total=num_lines)
 
+            # TODO: handle case of num_lines not being perfectly aligned to block_size
             args = ((block_size, max_line_length) for _ in range(num_lines // block_size))
             for result in pool.imap_unordered(_generate_block, args):
                 out_f.write(result)

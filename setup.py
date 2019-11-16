@@ -1,5 +1,12 @@
 import os
+import unittest
 from setuptools import setup, find_packages
+
+
+def discover_tests():
+    test_loader = unittest.TestLoader()
+    test_suite = test_loader.discover('tests', pattern='test_*.py')
+    return test_suite
 
 
 def read(filename):
@@ -10,7 +17,7 @@ def read(filename):
 
 setup(
     name='external_sort',
-    description='BERT for NER using catalyst',
+    description='Sorting of large files',
     author='Dmitry Kryuchkov',
     author_email='xelibrion@gmail.com',
     url='https://github.com/xelibrion/sort-large-files',
@@ -22,4 +29,11 @@ setup(
         ],
     },
     zip_safe=True,
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
+    ],
+    test_suite='setup.discover_tests',
 )
