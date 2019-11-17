@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 
 def _sort_block(block: List[str], block_idx: int, temp_dir: str) -> str:
-    # could be interesting to try BurstSort here
+    # NOTE: could be interesting to try BurstSort here
     # https://people.eng.unimelb.edu.au/jzobel/fulltext/acmjea06.pdf
     block.sort()
     file_name = f'{temp_dir}/_block_{block_idx}.txt'
